@@ -1,3 +1,6 @@
+import java.awt.*;
+import javax.swing.*;
+
 public class Color {
     // Regular Colors
     public static final String BLACK = "\033[0;30m";   // BLACK

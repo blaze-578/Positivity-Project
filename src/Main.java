@@ -14,6 +14,12 @@ public class Main {
         ArrayList<String> messages = new ArrayList<String>();
         ArrayList<String> reminders = new ArrayList<String>();
 
+        /** more variables:
+         * Name
+         * Color choice
+         *
+         */
+
 
         // putting all the files into an ArrayList
         // gifs
@@ -59,6 +65,8 @@ public class Main {
             }
         }
         catch (Exception e) { }
+
+        System.out.println(Color.BLACK + "hello");
 
     }
 }
