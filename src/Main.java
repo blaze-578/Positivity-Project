@@ -69,6 +69,16 @@ public class Main {
         catch (Exception e) { }
 
         System.out.println(Color.BLACK + gifs);
+        public String menu() {
+            return (
+                    "Menu:\n" +
+                    "1 - Positive message\n" +
+                    "2 - Daily reminder\n" +
+                    "3 - Cute Animal picture\n" +
+                    "4 - Cute Animal Gif\n" +
+                    "5 - Exit"
+            )
+        }
 
     }
 
