@@ -17,10 +17,3 @@ their self esteem and help them in their worse times.
 > Positive messages 
 - Reminders
 > Daily reminders 
-### Updates
-I will be trying to update this with more features and fixes in the code. The
-version indicates where I am up to/how many features there are. The first
-digit is how many features there are (but you have to add one.) The reason why 
-it's one less than how many features there areis because I started off with two 
-features, aka version 1. I will try my best to add more new ideas, but it 
-might take a while.
