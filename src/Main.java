@@ -17,8 +17,9 @@ public class Main {
         /** more variables:
          * Name
          * Color choice
-         *
+         * Starting choice
          */
+        String name;
 
 
         // putting all the files into an ArrayList
@@ -29,6 +30,7 @@ public class Main {
             String s = "";
             while ((s = br.readLine()) != null) {
                 gifs.add(s);
+                System.out.print(".");
             }
         }
         catch (Exception e) { }
@@ -66,7 +68,13 @@ public class Main {
         }
         catch (Exception e) { }
 
-        System.out.println(Color.BLACK + "hello");
+        System.out.println(Color.BLACK + gifs);
 
+    }
+
+    public static void clearScreen()
+    {   //clearing
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
