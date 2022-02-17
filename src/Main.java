@@ -27,19 +27,19 @@ public class Main {
         try {
             File f = new File ("Animal Gifs");
             BufferedReader br = new BufferedReader(new FileReader(f));
-            String s = "";
+            String s = br.readLine();
             while ((s = br.readLine()) != null) {
                 gifs.add(s);
                 System.out.print(".");
             }
         }
-        catch (Exception e) { }
+        catch (Exception e) {System.out.println("Help")}
 
         // pictures
         try {
             File f = new File ("Animal Pictures");
             BufferedReader br = new BufferedReader(new FileReader(f));
-            String s = "";
+            String s = br.readLine();
             while ((s = br.readLine()) != null) {
                 pictures.add(s);
             }
@@ -50,7 +50,7 @@ public class Main {
         try {
             File f = new File ("Messages");
             BufferedReader br = new BufferedReader(new FileReader(f));
-            String s = "";
+            String s = br.readLine();
             while ((s = br.readLine()) != null) {
                 messages.add(s);
             }
@@ -61,7 +61,7 @@ public class Main {
         try {
             File f = new File ("Reminders");
             BufferedReader br = new BufferedReader(new FileReader(f));
-            String s = "";
+            String s = br.readLine();
             while ((s = br.readLine()) != null) {
                 reminders.add(s);
             }
