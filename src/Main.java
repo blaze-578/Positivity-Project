@@ -7,7 +7,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // creating ArrayLists for the files
         ArrayList<String> gifs = new ArrayList<String>();
         ArrayList<String> pictures = new ArrayList<String>();
@@ -68,18 +68,25 @@ public class Main {
         }
         catch (Exception e) { }
 
-        System.out.println(Color.BLACK + gifs);
-        public String menu() {
-            return (
-                    "Menu:\n" +
-                    "1 - Positive message\n" +
-                    "2 - Daily reminder\n" +
-                    "3 - Cute Animal picture\n" +
-                    "4 - Cute Animal Gif\n" +
-                    "5 - Exit"
-            )
+        // System.out.println(Color.BLACK + gifs);
+        String statement1 = "Welcome to the Positivity Project!";
+
+        for (int i = 0; i < statement1.length(); i++) {
+            System.out.print(statement1.substring(i, i + 1));
+            Thread.sleep(25);
         }
 
+    }
+
+    public String menu() {
+        return (
+                "Menu:\n" +
+                        "1 - Positive message\n" +
+                        "2 - Daily reminder\n" +
+                        "3 - Cute Animal picture\n" +
+                        "4 - Cute Animal Gif\n" +
+                        "5 - Exit"
+        );
     }
 
     public static void clearScreen()
