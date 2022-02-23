@@ -9,10 +9,10 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         // creating ArrayLists for the files
-        ArrayList<String> gifs = new ArrayList<String>();
-        ArrayList<String> pictures = new ArrayList<String>();
-        ArrayList<String> messages = new ArrayList<String>();
-        ArrayList<String> reminders = new ArrayList<String>();
+        ArrayList<String> gifs;
+        ArrayList<String> pictures;
+        ArrayList<String> messages;
+        ArrayList<String> reminders;
 
         /** more variables:
          * Name
@@ -25,53 +25,76 @@ public class Main {
         // putting all the files into an ArrayList
         // gifs
         try {
-            File f = new File ("Animal Gifs");
+            File f = new File ("src/Animal Gifs");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
+            gifs = new ArrayList<String>();
             while ((s = br.readLine()) != null) {
                 gifs.add(s);
-                System.out.print(".");
             }
+            br.close();
         }
-        catch (Exception e) {System.out.println("Help")}
+        catch (IOException exception) {System.out.println("Help");}
 
         // pictures
         try {
-            File f = new File ("Animal Pictures");
+            File f = new File ("src/Animal Pictures");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
+            pictures = new ArrayList<String>();
             while ((s = br.readLine()) != null) {
                 pictures.add(s);
             }
+            br.close();
         }
-        catch (Exception e) { }
+        catch (IOException exception) { }
 
         // messages
         try {
-            File f = new File ("Messages");
+            File f = new File ("src/Messages");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
+            messages = new ArrayList<String>();
             while ((s = br.readLine()) != null) {
                 messages.add(s);
             }
+            br.close();
         }
-        catch (Exception e) { }
+        catch (IOException exception) { }
 
         // reminders
         try {
-            File f = new File ("Reminders");
+            File f = new File ("src/Reminders");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
+            reminders = new ArrayList<String>();
             while ((s = br.readLine()) != null) {
                 reminders.add(s);
             }
+            br.close();
         }
-        catch (Exception e) { }
+        catch (IOException exception) { }
 
-        System.out.println(Color.BLACK + gifs);
+
+        //System.out.println(Color.BLACK + gifs);
 
         System.out.println("Welcome to the Positivity Project!");
 
+    }
+
+    private void importFiles(String fileName, ArrayList<String> arrayListName) {
+        try {
+            File f = new File (fileName);
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            String s = br.readLine();
+            arrayListName = new ArrayList<String>();
+            while ((s = br.readLine()) != null) {
+                arrayListName.add(s);
+                System.out.print(".");
+            }
+            br.close();
+        }
+        catch (IOException exception) {System.out.println("Help");}
     }
 
     public static void clearScreen()
