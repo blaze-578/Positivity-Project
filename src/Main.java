@@ -25,7 +25,7 @@ public class Main {
         // putting all the files into an ArrayList
         // gifs
         try {
-            File f = new File ("src/Animal Gifs");
+            File f = new File ("src/AnimalGif.txt");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
             gifs = new ArrayList<String>();
@@ -38,7 +38,7 @@ public class Main {
 
         // pictures
         try {
-            File f = new File ("src/Animal Pictures");
+            File f = new File ("src/AnimalPictures.txt");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
             pictures = new ArrayList<String>();
@@ -51,7 +51,7 @@ public class Main {
 
         // messages
         try {
-            File f = new File ("src/Messages");
+            File f = new File ("src/Messages.txt");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
             messages = new ArrayList<String>();
@@ -64,7 +64,7 @@ public class Main {
 
         // reminders
         try {
-            File f = new File ("src/Reminders");
+            File f = new File ("src/Reminders.txt");
             BufferedReader br = new BufferedReader(new FileReader(f));
             String s = br.readLine();
             reminders = new ArrayList<String>();
