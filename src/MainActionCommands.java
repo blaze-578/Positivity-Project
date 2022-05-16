@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainActionCommands {
+    ArrayList<String> gifs;
+    ArrayList<String> pictures;
+    ArrayList<String> messages;
+    ArrayList<String> reminders;
 
     public void saveInfo(ArrayList<String> list, String fileName) {
         try {
