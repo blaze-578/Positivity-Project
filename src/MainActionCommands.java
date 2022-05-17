@@ -39,7 +39,8 @@ public class MainActionCommands {
     public static void createLists(ArrayList<String> list, String fileName) {
         try {
             File f = new File(fileName);
-            String temp = fileName.substring(0, 3) + "temp" + fileName.substring(3);
+            String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
+            System.out.println(temp);
             File t = new File(temp);
             Scanner s = new Scanner(f);
             t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
