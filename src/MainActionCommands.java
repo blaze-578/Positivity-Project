@@ -5,16 +5,25 @@ import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class MainActionCommands {
-    ArrayList<String> gifs;
-    ArrayList<String> pictures;
-    ArrayList<String> messages;
-    ArrayList<String> reminders;
+    private ArrayList<String> gifs;
+    private ArrayList<String> pictures;
+    private ArrayList<String> messages;
+    private ArrayList<String> reminders;
+
+    private ArrayList<String> usedGifs;
+    private ArrayList<String> usedPictures;
+    private ArrayList<String> usedMessages;
+    private ArrayList<String> usedReminders;
 
     public MainActionCommands() {
         gifs = new ArrayList<String>();
         pictures = new ArrayList<String>();
         messages = new ArrayList<String>();
         reminders = new ArrayList<String>();
+        usedGifs = new ArrayList<String>();
+        usedPictures = new ArrayList<String>();
+        usedMessages = new ArrayList<String>();
+        usedReminders = new ArrayList<String>();
 
         createLists(gifs, "src/AnimalGifs.txt");
         createLists(pictures, "src/AnimalPictures.txt");
@@ -55,6 +64,10 @@ public class MainActionCommands {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
+    }
+
+    public static void updateLists(String s, ArrayList<String> a) {
+
     }
 
 
