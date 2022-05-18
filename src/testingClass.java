@@ -9,5 +9,8 @@ public class testingClass {
         for (String i : temp) {
             System.out.println(i);
         }
+        m.updateFiles("src/AnimalGifs.txt", m.getGifs());
+
+
     }
 }

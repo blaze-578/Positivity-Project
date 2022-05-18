@@ -10,20 +10,20 @@ public class MainActionCommands {
     private ArrayList<String> messages;
     private ArrayList<String> reminders;
 
-    private ArrayList<String> usedGifs;
-    private ArrayList<String> usedPictures;
-    private ArrayList<String> usedMessages;
-    private ArrayList<String> usedReminders;
+    private ArrayList<String> currentGifs;
+    private ArrayList<String> currentPictures;
+    private ArrayList<String> currentMessages;
+    private ArrayList<String> currentReminders;
 
     public MainActionCommands() {
         gifs = new ArrayList<String>();
         pictures = new ArrayList<String>();
         messages = new ArrayList<String>();
         reminders = new ArrayList<String>();
-        usedGifs = new ArrayList<String>();
-        usedPictures = new ArrayList<String>();
-        usedMessages = new ArrayList<String>();
-        usedReminders = new ArrayList<String>();
+        currentGifs = new ArrayList<String>();
+        currentPictures = new ArrayList<String>();
+        currentMessages = new ArrayList<String>();
+        currentReminders = new ArrayList<String>();
 
         createLists(gifs, "src/AnimalGifs.txt");
         createLists(pictures, "src/AnimalPictures.txt");
@@ -44,15 +44,24 @@ public class MainActionCommands {
         return reminders;
     }
 
+    public ArrayList<String> getCurrentGifs() {
+        return currentGifs;
+    }
+    public ArrayList<String> getCurrentPictures() {
+        return currentPictures;
+    }
+    public ArrayList<String> getCurrentMessages() {
+        return currentMessages;
+    }
+    public ArrayList<String> getCurrentReminders() {
+        return currentReminders;
+    }
+
     // i need to figure out my sh-t for this one ;w;
-    public static void createLists(ArrayList<String> list, String fileName) {
+    public void createLists(ArrayList<String> list, String fileName) {
         try {
             File f = new File(fileName);
-            String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
-            File t = new File(temp);
             Scanner s = new Scanner(f);
-            t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter(temp);
             while (s.hasNextLine()) {
                 String data = s.nextLine();
                 list.add(data);
@@ -66,8 +75,22 @@ public class MainActionCommands {
         }
     }
 
-    public static void updateLists(String s, ArrayList<String> a) {
+    public void updateFiles(String fileName, ArrayList<String> list) {
+        String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
+        try {
+            createLists(list, temp);
+            ArrayList<String> tempString = new ArrayList<String>();
 
+            for (int i )
+
+
+        }
+        catch (IOException e) {
+            //File t = new File(temp);
+            //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            System.out.println("Unable to update files");
+            e.printStackTrace();
+        }
     }
 
 
