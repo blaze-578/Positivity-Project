@@ -30,7 +30,7 @@ public class MainActionCommands {
         return reminders;
     }
 
-    public ArrayList<String> createLists(String fileName) {
+    public static ArrayList<String> createLists(String fileName) {
         ArrayList<String> tempList = new ArrayList<String>();
         try {
             File f = new File(fileName);
@@ -48,7 +48,8 @@ public class MainActionCommands {
         return tempList; // can be used for the final part
     }
 
-    public void updateFiles(String fileName, ArrayList<String> list) {
+    // still working on this
+    public static void updateFiles(String fileName, ArrayList<String> list) {
         String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
         ArrayList<String> tempList = createLists(fileName);
         try {
@@ -75,6 +76,23 @@ public class MainActionCommands {
             //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
             System.out.println("Unable to update files");
             e.printStackTrace();
+        }
+    }
+
+    public void saveUserInfo() {
+        try {
+            File f = new File("src/user.data");
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter("src/user.data");
+            fw.write(name + "\n" + color + "\n" + startingNumber);
+            fw.close();
+        }
+        catch (IOException e) {
+            File f = new File("src/user.data");
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter("src/user.data");
+            fw.write(name + "\n" + color + "\n" + startingNumber);
+            fw.close();
         }
     }
 }
