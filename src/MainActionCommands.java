@@ -10,25 +10,11 @@ public class MainActionCommands {
     private ArrayList<String> messages;
     private ArrayList<String> reminders;
 
-    private ArrayList<String> currentGifs;
-    private ArrayList<String> currentPictures;
-    private ArrayList<String> currentMessages;
-    private ArrayList<String> currentReminders;
-
     public MainActionCommands() {
-        gifs = new ArrayList<String>();
-        pictures = new ArrayList<String>();
-        messages = new ArrayList<String>();
-        reminders = new ArrayList<String>();
-        currentGifs = new ArrayList<String>();
-        currentPictures = new ArrayList<String>();
-        currentMessages = new ArrayList<String>();
-        currentReminders = new ArrayList<String>();
-
-        createLists(gifs, "src/AnimalGifs.txt");
-        createLists(pictures, "src/AnimalPictures.txt");
-        createLists(messages, "src/Messages.txt");
-        createLists(reminders, "src/Reminders.txt");
+        gifs = createLists("src/AnimalGifs.txt");
+        pictures = createLists("src/AnimalPictures.txt");
+        messages = createLists("src/Messages.txt");
+        reminders = createLists("src/Reminders.txt");
     }
 
     public ArrayList<String> getGifs() {
@@ -44,45 +30,44 @@ public class MainActionCommands {
         return reminders;
     }
 
-    public ArrayList<String> getCurrentGifs() {
-        return currentGifs;
-    }
-    public ArrayList<String> getCurrentPictures() {
-        return currentPictures;
-    }
-    public ArrayList<String> getCurrentMessages() {
-        return currentMessages;
-    }
-    public ArrayList<String> getCurrentReminders() {
-        return currentReminders;
-    }
-
-    // i need to figure out my sh-t for this one ;w;
-    public void createLists(ArrayList<String> list, String fileName) {
+    public ArrayList<String> createLists(String fileName) {
+        ArrayList<String> tempList = new ArrayList<String>();
         try {
             File f = new File(fileName);
             Scanner s = new Scanner(f);
             while (s.hasNextLine()) {
                 String data = s.nextLine();
-                list.add(data);
+                tempList.add(data);
                 System.out.println("testing");
             }
             s.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
+        return tempList; // can be used for the final part
     }
 
     public void updateFiles(String fileName, ArrayList<String> list) {
         String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
+        ArrayList<String> tempList = createLists(fileName);
         try {
-            createLists(list, temp);
-            ArrayList<String> tempString = new ArrayList<String>();
+            for (int i = 0; i < list.size(); i++) {
+                for (int y = 0; y < tempList.size(); y++) {
+                    if (list.get(i).equals(tempList.get(y))) {
+                        tempList.remove(y);
+                        y--;
+                    }
+                }
+            }
 
-            for (int i )
-
+            File t = new File(temp);
+            t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter(temp);
+            for (String i : tempList) {
+                fw.write(i);
+            }
+            fw.close();
 
         }
         catch (IOException e) {
@@ -92,6 +77,4 @@ public class MainActionCommands {
             e.printStackTrace();
         }
     }
-
-
 }
