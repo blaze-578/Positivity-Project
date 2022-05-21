@@ -38,7 +38,7 @@ public class MainActionCommands {
             while (s.hasNextLine()) {
                 String data = s.nextLine();
                 tempList.add(data);
-                System.out.println("testing");
+                //System.out.println("testing");
             }
             s.close();
         } catch (IOException e) {
@@ -79,7 +79,7 @@ public class MainActionCommands {
         }
     }
 
-    public void saveUserInfo() {
+    /*public void saveUserInfo() {
         try {
             File f = new File("src/user.data");
             f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
@@ -94,5 +94,5 @@ public class MainActionCommands {
             fw.write(name + "\n" + color + "\n" + startingNumber);
             fw.close();
         }
-    }
+    }*/
 }

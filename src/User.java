@@ -24,7 +24,7 @@ public class User {
         reminders = MainActionCommands.createLists("src/Reminders.txt");
     }
 
-    public void saveUserInfo() {
+    /*public void saveUserInfo() {
         try {
             File f = new File("src/user.data");
             f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
@@ -39,5 +39,5 @@ public class User {
             fw.write(name + "\n" + color + "\n" + startingNumber);
             fw.close();
         }
-    }
+    }*/
 }
