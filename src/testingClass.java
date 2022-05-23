@@ -1,14 +1,11 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 
 public class testingClass {
     public static void main(String[] args) {
-        MainActionCommands m = new MainActionCommands();
+        MainCmds m = new MainCmds();
 
-        ArrayList<String> temp = m.getGifs();
+        //ArrayList<String> temp = m.getGifs();
 
         /*for (String i : temp) {
             System.out.println(i);
@@ -17,7 +14,9 @@ public class testingClass {
 
         Scanner s = new Scanner(System.in);
 
-        System.out.print("Name: ");
+        System.out.println(m.getGifs());
+
+        System.out.print("Hello, welcome to the Positivity Machine, what is your name? ");
         String name = s.nextLine();
         System.out.print(name);
 

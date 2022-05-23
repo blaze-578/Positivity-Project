@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class User {
@@ -18,10 +15,10 @@ public class User {
         name = n;
         color = c;
         startingNumber = s;
-        gifs = MainActionCommands.createLists("src/AnimalGifs.txt");
-        pictures = MainActionCommands.createLists("src/AnimalPictures.txt");
-        messages = MainActionCommands.createLists("src/Messages.txt");
-        reminders = MainActionCommands.createLists("src/Reminders.txt");
+        gifs = MainCmds.createLists("src/AnimalGifs.txt");
+        pictures = MainCmds.createLists("src/AnimalPictures.txt");
+        messages = MainCmds.createLists("src/Messages.txt");
+        reminders = MainCmds.createLists("src/Reminders.txt");
     }
 
     /*public void saveUserInfo() {

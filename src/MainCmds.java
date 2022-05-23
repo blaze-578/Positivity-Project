@@ -4,31 +4,36 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 
-public class MainActionCommands {
+public class MainCmds {
     private ArrayList<String> gifs;
     private ArrayList<String> pictures;
     private ArrayList<String> messages;
     private ArrayList<String> reminders;
 
-    public MainActionCommands() {
+    public MainCmds() {
         gifs = createLists("src/AnimalGifs.txt");
         pictures = createLists("src/AnimalPictures.txt");
         messages = createLists("src/Messages.txt");
         reminders = createLists("src/Reminders.txt");
     }
 
-    public ArrayList<String> getGifs() {
-        return gifs;
+    public String getGifs() {
+        String gif = gifs.remove((int) (Math.random() * gifs.size()));
+        return gif;
     }
-    public ArrayList<String> getPictures() {
-        return pictures;
+    public String getPictures() {
+        String picture = pictures.remove((int) (Math.random() * pictures.size()));
+        return picture;
     }
-    public ArrayList<String> getMessages() {
-        return messages;
+    public String getMessages() {
+        String message = messages.remove((int) (Math.random() * messages.size()));
+        return message;
     }
-    public ArrayList<String> getReminders() {
-        return reminders;
+    public String getReminders() {
+        String reminder = reminders.remove((int) (Math.random() * reminders.size()));
+        return reminder;
     }
+
 
     public static ArrayList<String> createLists(String fileName) {
         ArrayList<String> tempList = new ArrayList<String>();
