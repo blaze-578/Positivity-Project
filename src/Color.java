@@ -85,7 +85,7 @@ public class Color {
         System.out.println("5. " + BLUE + "Blue" + RESET);
         System.out.println("6. " + PURPLE + "Purple" + RESET);
         System.out.println("7. " + CYAN + "Cyan" + RESET);
-        System.out.println("8. " + WHITE + "White" + RESET);
+        System.out.println("8. " + WHITE + "White (yes I know it's gray)" + RESET);
     }
 
     public static final ArrayList<String> BLACKARRAYLIST = new ArrayList<String>(Arrays.asList(BLACK, BLACK_BOLD, BLACK_UNDERLINED, BLACK_BACKGROUND, BLACK_BRIGHT, BLACK_BOLD_BRIGHT, BLACK_BACKGROUND_BRIGHT));
