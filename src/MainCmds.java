@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner; // Import the Scanner class to read text files
 
-public class MainCmds {
+public class  MainCmds {
     private ArrayList<String> gifs;
     private ArrayList<String> pictures;
     private ArrayList<String> messages;
@@ -32,6 +32,18 @@ public class MainCmds {
     public String getReminders() {
         String reminder = reminders.remove((int) (Math.random() * reminders.size()));
         return reminder;
+    }
+
+    public static void colorMenu() {
+        System.out.println("Color Menu:");
+        System.out.println("1. " + Color.BLACK + "Black" + Color.RESET);
+        System.out.println("2. " + Color.RED + "Red" + Color.RESET);
+        System.out.println("3. " + Color.GREEN + "Green" + Color.RESET);
+        System.out.println("4. " + Color.YELLOW + "Yellow" + Color.RESET);
+        System.out.println("5. " + Color.BLUE + "Blue" + Color.RESET);
+        System.out.println("6. " + Color.PURPLE + "Purple" + Color.RESET);
+        System.out.println("7. " + Color.CYAN + "Cyan" + Color.RESET);
+        System.out.println("8. " + Color.WHITE + "White" + Color.RESET);
     }
 
 

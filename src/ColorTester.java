@@ -8,8 +8,8 @@ public class ColorTester {
         System.out.println(Color.BLUE + "Blue");
         System.out.println(Color.PURPLE + "Purple");
         System.out.println(Color.CYAN + "Cyan");
-        System.out.println(Color.WHITE + "White");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET + "White");
+        System.out.println(Color.RESET);
 
         // bold
         System.out.println(Color.BLACK_BOLD + "Black Bold");
@@ -20,7 +20,7 @@ public class ColorTester {
         System.out.println(Color.PURPLE_BOLD + "Purple Bold");
         System.out.println(Color.CYAN_BOLD + "Cyan Bold");
         System.out.println(Color.WHITE_BOLD + "White Bold");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET);
 
         // underlined
         System.out.println(Color.BLACK_UNDERLINED + "Black Underlined");
@@ -31,7 +31,7 @@ public class ColorTester {
         System.out.println(Color.PURPLE_UNDERLINED + "Purple Underlined");
         System.out.println(Color.CYAN_UNDERLINED + "Cyan Underlined");
         System.out.println(Color.WHITE_UNDERLINED + "White Underlined");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET);
 
         // background
         System.out.println(Color.BLACK_BACKGROUND + "Black Background");
@@ -42,7 +42,7 @@ public class ColorTester {
         System.out.println(Color.PURPLE_BACKGROUND+ "Purple Background");
         System.out.println(Color.CYAN_BACKGROUND + "Cyan Background");
         System.out.println(Color.WHITE_BACKGROUND + "White Background");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET);
 
         // bright
         System.out.println(Color.BLACK_BRIGHT + "Black Bright");
@@ -53,7 +53,7 @@ public class ColorTester {
         System.out.println(Color.PURPLE_BRIGHT + "Purple Bright");
         System.out.println(Color.CYAN_BRIGHT + "Cyan Bright");
         System.out.println(Color.WHITE_BRIGHT + "White Bright");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET);
 
         // bold bright
         System.out.println(Color.BLACK_BOLD_BRIGHT + "Black Bold Bright");
@@ -64,7 +64,7 @@ public class ColorTester {
         System.out.println(Color.PURPLE_BOLD_BRIGHT + "Purple Bold Bright");
         System.out.println(Color.CYAN_BOLD_BRIGHT + "Cyan Bold Bright");
         System.out.println(Color.WHITE_BOLD_BRIGHT + "White Bold Bright");
-        System.out.println(Color.WHITE);
+        System.out.println(Color.RESET);
 
         // background bright
         System.out.println(Color.BLACK_BACKGROUND_BRIGHT + "Black Background Bright");

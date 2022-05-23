@@ -18,7 +18,9 @@ public class testingClass {
 
         System.out.print("Hello, welcome to the Positivity Machine, what is your name? ");
         String name = s.nextLine();
-        System.out.print(name);
+        System.out.println(name);
+        MainCmds.colorMenu();
+
 
 
     }

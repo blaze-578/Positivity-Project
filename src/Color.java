@@ -1,7 +1,9 @@
-import java.awt.*;
-import javax.swing.*;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 public class Color {
+    // reset
+    public static final String RESET = "\u001B[0m"; // default
+
     // Regular Colors
     public static final String BLACK = "\033[0;30m";   // BLACK
     public static final String RED = "\033[0;31m";     // RED
@@ -65,12 +67,22 @@ public class Color {
     public static final String WHITE_BOLD_BRIGHT = "\033[1;97m"; // WHITE
 
     // High Intensity backgrounds
-    public static final String BLACK_BACKGROUND_BRIGHT = "\033[0;100m";// BLACK
-    public static final String RED_BACKGROUND_BRIGHT = "\033[0;101m";// RED
-    public static final String GREEN_BACKGROUND_BRIGHT = "\033[0;102m";// GREEN
+    public static final String BLACK_BACKGROUND_BRIGHT = "\033[0;100m"; // BLACK
+    public static final String RED_BACKGROUND_BRIGHT = "\033[0;101m";   // RED
+    public static final String GREEN_BACKGROUND_BRIGHT = "\033[0;102m"; // GREEN
     public static final String YELLOW_BACKGROUND_BRIGHT = "\033[0;103m";// YELLOW
-    public static final String BLUE_BACKGROUND_BRIGHT = "\033[0;104m";// BLUE
-    public static final String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m"; // PURPLE
+    public static final String BLUE_BACKGROUND_BRIGHT = "\033[0;104m";  // BLUE
+    public static final String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m";// PURPLE
     public static final String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
-    public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
+    public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; // WHITE
+
+
+    public static final ArrayList<String> BLACKARRAYLIST = new ArrayList<String>(Arrays.asList(BLACK, BLACK_BOLD, BLACK_UNDERLINED, BLACK_BACKGROUND, BLACK_BRIGHT, BLACK_BOLD_BRIGHT, BLACK_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> REDARRAYLIST = new ArrayList<String>(Arrays.asList(RED, RED_BOLD, RED_UNDERLINED, RED_BACKGROUND, RED_BRIGHT, RED_BOLD_BRIGHT, RED_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> GREENARRAYLIST = new ArrayList<String>(Arrays.asList(GREEN, GREEN_BOLD, GREEN_UNDERLINED, GREEN_BACKGROUND, GREEN_BRIGHT, GREEN_BOLD_BRIGHT, GREEN_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> YELLOWARRAYLIST = new ArrayList<String>(Arrays.asList(YELLOW, YELLOW_BOLD, YELLOW_UNDERLINED, YELLOW_BACKGROUND, YELLOW_BRIGHT, YELLOW_BOLD_BRIGHT, YELLOW_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> BLUEARRAYLIST = new ArrayList<String>(Arrays.asList(BLUE, BLUE_BOLD, BLUE_UNDERLINED, BLUE_BACKGROUND, BLUE_BRIGHT, BLUE_BOLD_BRIGHT, BLUE_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> PURPLEARRAYLIST = new ArrayList<String>(Arrays.asList(PURPLE, PURPLE_BOLD, PURPLE_UNDERLINED, PURPLE_BACKGROUND, PURPLE_BRIGHT, PURPLE_BOLD_BRIGHT, PURPLE_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> CYANARRAYLIST = new ArrayList<String>(Arrays.asList(CYAN, CYAN_BOLD, CYAN_UNDERLINED, CYAN_BACKGROUND, CYAN_BRIGHT, CYAN_BOLD_BRIGHT, CYAN_BACKGROUND_BRIGHT));
+    public static final ArrayList<String> WHITEARRAYLIST = new ArrayList<String>(Arrays.asList(WHITE, WHITE_BOLD, WHITE_UNDERLINED, WHITE_BACKGROUND, WHITE_BRIGHT, WHITE_BOLD_BRIGHT, WHITE_BACKGROUND_BRIGHT));
 }

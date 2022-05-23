@@ -21,6 +21,17 @@ public class User {
         reminders = MainCmds.createLists("src/Reminders.txt");
     }
 
+    public String getName() {
+        return name;
+    }
+    public Color getColor() {
+        return color;
+    }
+
+    public String toString() {
+        return("Name: " + getName());
+    }
+
     /*public void saveUserInfo() {
         try {
             File f = new File("src/user.data");
