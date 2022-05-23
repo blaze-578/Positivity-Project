@@ -76,6 +76,17 @@ public class Color {
     public static final String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
     public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; // WHITE
 
+    public static void colorMenu() {
+        System.out.println("Color Menu:");
+        System.out.println("1. " + BLACK + "Black" + RESET);
+        System.out.println("2. " + RED + "Red" + RESET);
+        System.out.println("3. " + GREEN + "Green" + RESET);
+        System.out.println("4. " + YELLOW + "Yellow" + RESET);
+        System.out.println("5. " + BLUE + "Blue" + RESET);
+        System.out.println("6. " + PURPLE + "Purple" + RESET);
+        System.out.println("7. " + CYAN + "Cyan" + RESET);
+        System.out.println("8. " + WHITE + "White" + RESET);
+    }
 
     public static final ArrayList<String> BLACKARRAYLIST = new ArrayList<String>(Arrays.asList(BLACK, BLACK_BOLD, BLACK_UNDERLINED, BLACK_BACKGROUND, BLACK_BRIGHT, BLACK_BOLD_BRIGHT, BLACK_BACKGROUND_BRIGHT));
     public static final ArrayList<String> REDARRAYLIST = new ArrayList<String>(Arrays.asList(RED, RED_BOLD, RED_UNDERLINED, RED_BACKGROUND, RED_BRIGHT, RED_BOLD_BRIGHT, RED_BACKGROUND_BRIGHT));
