@@ -17,21 +17,25 @@ public class  MainCmds {
         reminders = createLists("src/Reminders.txt");
     }
 
-    public String getGifs() {
+    public void getGifs() {
         String gif = gifs.remove((int) (Math.random() * gifs.size()));
-        return "Gif Link: Click on it!\n" + gif;
+        System.out.println("Gif Link: Click on it!\n" + gif);
+        menu();
     }
-    public String getPictures() {
+    public void getPictures() {
         String picture = pictures.remove((int) (Math.random() * pictures.size()));
-        return "Picture Link: Click on it!\n" + picture;
+        System.out.println("Picture Link: Click on it!\n" + picture);
+        menu();
     }
-    public String getMessages() {
+    public void getMessages() {
         String message = messages.remove((int) (Math.random() * messages.size()));
-        return "Message: " + message;
+        System.out.println("Message: " + message);
+        menu();
     }
-    public String getReminders() {
+    public void getReminders() {
         String reminder = reminders.remove((int) (Math.random() * reminders.size()));
-        return "Daily Reminder: " + reminder;
+        System.out.println("Daily Reminder: " + reminder);
+        menu();
     }
 
     public void menu() {
@@ -45,7 +49,7 @@ public class  MainCmds {
         System.out.print("Pick one: ");
         int choice = s.nextInt();
         if (choice == 1) {
-            System.out.println(getMessages());
+            getMessages();
         }
         if (choice == 2) {
             getReminders();
