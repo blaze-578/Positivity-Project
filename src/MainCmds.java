@@ -38,6 +38,10 @@ public class  MainCmds {
         menu();
     }
 
+    public void endLoop() {
+        System.out.println("I hope this helped! Have a nice day!");
+    }
+
     public void menu() {
         Scanner s = new Scanner(System.in);
         System.out.println("Menu: ");
@@ -59,6 +63,9 @@ public class  MainCmds {
         }
         if (choice == 4) {
             getGifs();
+        }
+        if (choice == 5) {
+            endLoop();
         }
     }
 
