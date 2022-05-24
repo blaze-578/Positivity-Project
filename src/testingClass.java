@@ -14,12 +14,13 @@ public class testingClass {
 
         Scanner s = new Scanner(System.in);
 
-        System.out.println(m.getGifs());
+        //System.out.println(m.getMessages());
 
         System.out.print("Hello, welcome to the Positivity Machine, what is your name? ");
         String name = s.nextLine();
         System.out.println(name);
-        Color.colorMenu();
+        //Color.colorMenu();
+        m.menu();
 
 
 

@@ -19,19 +19,43 @@ public class  MainCmds {
 
     public String getGifs() {
         String gif = gifs.remove((int) (Math.random() * gifs.size()));
-        return gif;
+        return "Gif Link: Click on it!\n" + gif;
     }
     public String getPictures() {
         String picture = pictures.remove((int) (Math.random() * pictures.size()));
-        return picture;
+        return "Picture Link: Click on it!\n" + picture;
     }
     public String getMessages() {
         String message = messages.remove((int) (Math.random() * messages.size()));
-        return message;
+        return "Message: " + message;
     }
     public String getReminders() {
         String reminder = reminders.remove((int) (Math.random() * reminders.size()));
-        return reminder;
+        return "Daily Reminder: " + reminder;
+    }
+
+    public void menu() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Menu: ");
+        System.out.println("1. Messages");
+        System.out.println("2. Daily Reminders");
+        System.out.println("3. Animal Pictures");
+        System.out.println("4. Animal Gifs");
+        System.out.println("5. Exit");
+        System.out.print("Pick one: ");
+        int choice = s.nextInt();
+        if (choice == 1) {
+            System.out.println(getMessages());
+        }
+        if (choice == 2) {
+            getReminders();
+        }
+        if (choice == 3) {
+            getPictures();
+        }
+        if (choice == 4) {
+            getGifs();
+        }
     }
 
 
