@@ -14,8 +14,6 @@ public class Color {
     public static final String CYAN = "\033[0;36m";    // CYAN
     public static final String WHITE = "\033[0;37m";   // WHITE
 
-    public static final String PEACH = "\033[1;91m";
-
     // Bold
     public static final String BLACK_BOLD = "\033[1;30m";  // BLACK
     public static final String RED_BOLD = "\033[1;31m";    // RED
@@ -77,15 +75,17 @@ public class Color {
     public static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; // WHITE
 
     public static void colorMenu() {
-        System.out.println("Color Menu:");
-        System.out.println("1. " + BLACK + "Black" + RESET);
-        System.out.println("2. " + RED + "Red" + RESET);
-        System.out.println("3. " + GREEN + "Green" + RESET);
-        System.out.println("4. " + YELLOW + "Yellow" + RESET);
-        System.out.println("5. " + BLUE + "Blue" + RESET);
-        System.out.println("6. " + PURPLE + "Purple" + RESET);
-        System.out.println("7. " + CYAN + "Cyan" + RESET);
-        System.out.println("8. " + WHITE + "White (yes I know it's gray)" + RESET);
+        System.out.println(WHITE_BRIGHT + "Color Menu:");
+        System.out.println("1. " + BLACK + "Black" + WHITE_BRIGHT);
+        System.out.println("2. " + RED + "Red" + WHITE_BRIGHT);
+        System.out.println("3. " + GREEN + "Green" + WHITE_BRIGHT);
+        System.out.println("4. " + YELLOW + "Yellow" + WHITE_BRIGHT);
+        System.out.println("5. " + BLUE + "Blue" + WHITE_BRIGHT);
+        System.out.println("6. " + PURPLE + "Purple" + WHITE_BRIGHT);
+        System.out.println("7. " + CYAN + "Cyan" + WHITE_BRIGHT);
+
+        // System.out.println("8. " + WHITE + "White (yes I know it's gray)" + RESET);
+        // I'm going to keep white as a "personal" color, or just something used as a buffer
     }
 
     public static final ArrayList<String> BLACKARRAYLIST = new ArrayList<String>(Arrays.asList(BLACK, BLACK_BOLD, BLACK_UNDERLINED, BLACK_BACKGROUND, BLACK_BRIGHT, BLACK_BOLD_BRIGHT, BLACK_BACKGROUND_BRIGHT));
