@@ -18,28 +18,52 @@ public class  MainCmds {
     }
 
     public void getGifs() {
-        String gif = gifs.remove((int) (Math.random() * gifs.size()));
-        System.out.println("Gif Link: Click on it!\n" + gif);
+        if (gifs.size() > 0) {
+            String gif = gifs.remove((int) (Math.random() * gifs.size()));
+            System.out.println("Gif Link: Click on it!\n" + gif);
+        }
+        else if (gifs.size() == 0) {
+            System.out.println("There are no more gif links left :(");
+        }
         menu();
     }
     public void getPictures() {
-        String picture = pictures.remove((int) (Math.random() * pictures.size()));
-        System.out.println("Picture Link: Click on it!\n" + picture);
+        if (pictures.size() > 0) {
+            String picture = pictures.remove((int) (Math.random() * pictures.size()));
+            System.out.println("Picture Link: Click on it!\n" + picture);
+        }
+        else if (pictures.size() == 0) {
+            System.out.println("There are no more animal pictures left :(");
+        }
         menu();
     }
     public void getMessages() {
-        String message = messages.remove((int) (Math.random() * messages.size()));
-        System.out.println("Message: " + message);
+        if (messages.size() > 0) {
+            String message = messages.remove((int) (Math.random() * messages.size()));
+            System.out.println("Message: " + message);
+        }
+        else if (messages.size() == 0) {
+            System.out.println("There are no more messages left :(");
+        }
         menu();
     }
     public void getReminders() {
-        String reminder = reminders.remove((int) (Math.random() * reminders.size()));
-        System.out.println("Daily Reminder: " + reminder);
+        if (reminders.size() > 0) {
+            String reminder = reminders.remove((int) (Math.random() * reminders.size()));
+            System.out.println("Daily Reminder: " + reminder);
+        }
+        else if (reminders.size() == 0) {
+            System.out.println("There are no more daily reminders left :(");
+        }
         menu();
     }
 
     public void endLoop() {
         System.out.println("I hope this helped! Have a nice day!");
+    }
+    public void errorLoop() {
+        System.out.println("Sorry, I'm not sure what you typed. Try again!");
+        menu();
     }
 
     public void menu() {
@@ -49,7 +73,8 @@ public class  MainCmds {
         System.out.println("2. Daily Reminders");
         System.out.println("3. Animal Pictures");
         System.out.println("4. Animal Gifs");
-        System.out.println("5. Exit");
+        System.out.println("5. Random");
+        System.out.println("6. Exit");
         System.out.print("Pick one: ");
         int choice = s.nextInt();
         if (choice == 1) {
@@ -65,7 +90,25 @@ public class  MainCmds {
             getGifs();
         }
         if (choice == 5) {
+            int num = (int) (Math.random() * 4 + 1);
+            if (num == 1) {
+                getMessages();
+            }
+            if (num == 2) {
+                getReminders();
+            }
+            if (num == 3) {
+                getPictures();
+            }
+            if (num == 4) {
+                getGifs();
+            }
+        }
+        if (choice == 6) {
             endLoop();
+        }
+        else {
+            errorLoop();
         }
     }
 
