@@ -106,6 +106,7 @@ public class  MainCmds {
         }
         if (choice == 6) {
             endLoop();
+            System.exit(0);
         }
         else {
             errorLoop();
