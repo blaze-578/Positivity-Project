@@ -1,7 +1,10 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class  MainCmds {
@@ -9,12 +12,14 @@ public class  MainCmds {
     private ArrayList<String> pictures;
     private ArrayList<String> messages;
     private ArrayList<String> reminders;
+    private ArrayList<ArrayList<String>> all;
 
     public MainCmds() {
         gifs = createLists("src/AnimalGifs.txt");
         pictures = createLists("src/AnimalPictures.txt");
         messages = createLists("src/Messages.txt");
         reminders = createLists("src/Reminders.txt");
+        all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
     }
 
     public void getGifs() {
@@ -60,10 +65,34 @@ public class  MainCmds {
 
     public void endLoop() {
         System.out.println("I hope this helped! Have a nice day!");
+        System.exit(0);
     }
     public void errorLoop() {
         System.out.println("Sorry, I'm not sure what you typed. Try again!");
         menu();
+    }
+    public void empty() {
+        System.out.println("No more messages/links :(");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Would you like to reset everything? (y/n) ");
+        String answer = sc.nextLine();
+        if (answer.toLowerCase().equals("y")) {
+            gifs = createLists("src/AnimalGifs.txt");
+            pictures = createLists("src/AnimalPictures.txt");
+            messages = createLists("src/Messages.txt");
+            reminders = createLists("src/Reminders.txt");
+            System.out.println("All options have been reset!");
+        }
+        else {
+            System.out.println("No options have been updated.");
+        }
+        menu();
+    }
+    public void reset() {
+        gifs = createLists("src/AnimalGifs.txt");
+        pictures = createLists("src/AnimalPictures.txt");
+        messages = createLists("src/Messages.txt");
+        reminders = createLists("src/Reminders.txt");
     }
 
     public void menu() {
@@ -90,29 +119,46 @@ public class  MainCmds {
             getGifs();
         }
         if (choice == 5) {
-            int num = (int) (Math.random() * 4 + 1);
-            if (num == 1) {
-                getMessages();
+            int tempNum = 0;
+            for (ArrayList<String> i : all) {
+                if (i.size() > 0) {
+                    tempNum++;
+                }
             }
-            if (num == 2) {
-                getReminders();
+            if (tempNum == 0) {
+                empty();
             }
-            if (num == 3) {
-                getPictures();
-            }
-            if (num == 4) {
-                getGifs();
+            else {
+                boolean x = true;
+                int num = 0;
+                while (x) {
+                    num = (int) (Math.random() * 4);
+                    if (all.get(num).size() != 0) {
+                        x = false;
+                    }
+                }
+                num++;
+                if (num == 1) {
+                    getMessages();
+                }
+                if (num == 2) {
+                    getReminders();
+                }
+                if (num == 3) {
+                    getPictures();
+                }
+                if (num == 4) {
+                    getGifs();
+                }
             }
         }
         if (choice == 6) {
             endLoop();
-            System.exit(0);
         }
         else {
             errorLoop();
         }
     }
-
 
     public static ArrayList<String> createLists(String fileName) {
         ArrayList<String> tempList = new ArrayList<String>();
@@ -132,8 +178,27 @@ public class  MainCmds {
         return tempList; // can be used for the final part
     }
 
+    public static void updateFile(String fileName, ArrayList<String> list) {
+        String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
+        try {
+            File f = new File(temp);
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter("src/user.data");
+            for (String i : list) {
+                fw.write(i + "\n");
+            }
+            fw.close();
+        }
+        catch (IOException e) {
+                //File t = new File(temp);
+                //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+                System.out.println("Unable to update files");
+                e.printStackTrace();
+        }
+    }
+
     // still working on this
-    public static void updateFiles(String fileName, ArrayList<String> list) {
+    /*public static void updateFiles(String fileName, ArrayList<String> list) {
         String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
         ArrayList<String> tempList = createLists(fileName);
         try {
@@ -161,7 +226,7 @@ public class  MainCmds {
             System.out.println("Unable to update files");
             e.printStackTrace();
         }
-    }
+    }*/
 
     /*public void saveUserInfo() {
         try {
