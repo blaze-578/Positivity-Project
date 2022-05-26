@@ -77,10 +77,7 @@ public class  MainCmds {
         System.out.print("Would you like to reset everything? (y/n) ");
         String answer = sc.nextLine();
         if (answer.toLowerCase().equals("y")) {
-            gifs = createLists("src/AnimalGifs.txt");
-            pictures = createLists("src/AnimalPictures.txt");
-            messages = createLists("src/Messages.txt");
-            reminders = createLists("src/Reminders.txt");
+            reset();
             System.out.println("All options have been reset!");
         }
         else {
@@ -89,6 +86,10 @@ public class  MainCmds {
         menu();
     }
     public void reset() {
+        gifs = new ArrayList<String>();
+        pictures = new ArrayList<String>();
+        messages = new ArrayList<String>();
+        reminders = new ArrayList<String>();
         gifs = createLists("src/AnimalGifs.txt");
         pictures = createLists("src/AnimalPictures.txt");
         messages = createLists("src/Messages.txt");
