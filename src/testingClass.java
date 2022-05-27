@@ -16,7 +16,7 @@ public class testingClass {
 
         //System.out.println(m.getMessages());
 
-        System.out.print("Hello, welcome to the Positivity Machine, what is your name? ");
+        System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
         String name = s.nextLine();
 
 

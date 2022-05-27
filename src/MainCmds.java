@@ -8,44 +8,26 @@ import java.util.Locale;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class  MainCmds {
-    private ArrayList<String> gifs;
-    private ArrayList<String> pictures;
     private ArrayList<String> messages;
     private ArrayList<String> reminders;
+    private ArrayList<String> pictures;
+    private ArrayList<String> gifs;
     private ArrayList<ArrayList<String>> all;
+    int lastNum;
 
     public MainCmds() {
-        gifs = createLists("src/AnimalGifs.txt");
-        pictures = createLists("src/AnimalPictures.txt");
         messages = createLists("src/Messages.txt");
         reminders = createLists("src/Reminders.txt");
+        pictures = createLists("src/AnimalPictures.txt");
+        gifs = createLists("src/AnimalGifs.txt");
         all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
+        lastNum = 0;
     }
 
-    public void getGifs() {
-        if (gifs.size() > 0) {
-            String gif = gifs.remove((int) (Math.random() * gifs.size()));
-            System.out.println("Gif Link: Click on it!\n" + gif);
-        }
-        else if (gifs.size() == 0) {
-            System.out.println("There are no more gif links left :(");
-        }
-        menu();
-    }
-    public void getPictures() {
-        if (pictures.size() > 0) {
-            String picture = pictures.remove((int) (Math.random() * pictures.size()));
-            System.out.println("Picture Link: Click on it!\n" + picture);
-        }
-        else if (pictures.size() == 0) {
-            System.out.println("There are no more animal pictures left :(");
-        }
-        menu();
-    }
     public void getMessages() {
         if (messages.size() > 0) {
             String message = messages.remove((int) (Math.random() * messages.size()));
-            System.out.println("Message: " + message);
+            System.out.println(Color.CYAN + "Message: " + Color.WHITE_BRIGHT + message);
         }
         else if (messages.size() == 0) {
             System.out.println("There are no more messages left :(");
@@ -55,10 +37,30 @@ public class  MainCmds {
     public void getReminders() {
         if (reminders.size() > 0) {
             String reminder = reminders.remove((int) (Math.random() * reminders.size()));
-            System.out.println("Daily Reminder: " + reminder);
+            System.out.println(Color.YELLOW_BRIGHT + "Daily Reminder: " + Color.WHITE_BRIGHT + reminder);
         }
         else if (reminders.size() == 0) {
             System.out.println("There are no more daily reminders left :(");
+        }
+        menu();
+    }
+    public void getPictures() {
+        if (pictures.size() > 0) {
+            String picture = pictures.remove((int) (Math.random() * pictures.size()));
+            System.out.println(Color.GREEN_BRIGHT + "Picture Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + picture);
+        }
+        else if (pictures.size() == 0) {
+            System.out.println("There are no more animal pictures left :(");
+        }
+        menu();
+    }
+    public void getGifs() {
+        if (gifs.size() > 0) {
+            String gif = gifs.remove((int) (Math.random() * gifs.size()));
+            System.out.println(Color.BLUE + "Gif Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + gif);
+        }
+        else if (gifs.size() == 0) {
+            System.out.println("There are no more gif links left :(");
         }
         menu();
     }
@@ -99,12 +101,12 @@ public class  MainCmds {
     public void menu() {
         Scanner s = new Scanner(System.in);
         System.out.println(Color.WHITE_BRIGHT + "Menu: ");
-        System.out.println(Color.WHITE_BRIGHT + "1. " +  Color.CYAN + "Messages");
-        System.out.println(Color.WHITE_BRIGHT + "2. " + Color.YELLOW + "Daily Reminders");
-        System.out.println(Color.WHITE_BRIGHT + "3. " + Color.GREEN + "Animal Pictures");
+        System.out.println(Color.WHITE_BRIGHT + "1. " + Color.CYAN + "Messages");
+        System.out.println(Color.WHITE_BRIGHT + "2. " + Color.YELLOW_BRIGHT + "Daily Reminders");
+        System.out.println(Color.WHITE_BRIGHT + "3. " + Color.GREEN_BRIGHT + "Animal Pictures");
         System.out.println(Color.WHITE_BRIGHT + "4. " + Color.BLUE + "Animal Gifs");
         System.out.println(Color.WHITE_BRIGHT + "5. " + Color.PURPLE + "Random");
-        System.out.println(Color.WHITE_BRIGHT + "6. " +  Color.RED + "Exit");
+        System.out.println(Color.WHITE_BRIGHT + "6. " + Color.RED + "Exit");
         System.out.print(Color.WHITE_BRIGHT + "Pick one: ");
         int choice = s.nextInt();
         if (choice == 1) {
@@ -135,7 +137,13 @@ public class  MainCmds {
                 while (x) {
                     num = (int) (Math.random() * 4);
                     if (all.get(num).size() != 0) {
-                        x = false;
+                        if (tempNum == 1) {
+                            x = false;
+                        }
+                        if (num != lastNum) {
+                            lastNum = num;
+                            x = false;
+                        }
                     }
                 }
                 num++;
