@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class testingClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         MainCmds m = new MainCmds();
 
         //ArrayList<String> temp = m.getGifs();
@@ -18,7 +18,9 @@ public class testingClass {
 
         System.out.print("Hello, welcome to the Positivity Machine, what is your name? ");
         String name = s.nextLine();
-        System.out.println(name);
+
+
+        User n = new User(name);
         //Color.colorMenu();
         m.menu();
 
