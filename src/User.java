@@ -1,51 +1,28 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User {
     private String name;
-    private Color color;
-    private int startingNumber;
-    private MainCmds m;
 
-    private ArrayList<String> gifs;
-    private ArrayList<String> pictures;
-    private ArrayList<String> messages;
-    private ArrayList<String> reminders;
-
-    public User(String n, Color c, int s) {
+    public User(String n) throws InterruptedException {
         // main constructor
         name = n;
-        color = c;
-        startingNumber = s;
-        m = new MainCmds();
+        welcomeMessage();
     }
 
     public String getName() {
         return name;
-    }
-    public Color getColor() {
-        return color;
     }
 
     public String toString() {
         return("Name: " + getName());
     }
 
+    public void welcomeMessage() throws InterruptedException {
+        System.out.println("Welcome " + name + ", I hope your day is going well.");
+        Thread.sleep(2000);
+        System.out.println("If not, I hope this project helps!");
+        Thread.sleep(3500);
+    }
 
-    /*public void saveUserInfo() {
-        try {
-            File f = new File("src/user.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/user.data");
-            fw.write(name + "\n" + color + "\n" + startingNumber);
-            fw.close();
-        }
-        catch (IOException e) {
-            File f = new File("src/user.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/user.data");
-            fw.write(name + "\n" + color + "\n" + startingNumber);
-            fw.close();
-        }
-    }*/
+
 }
