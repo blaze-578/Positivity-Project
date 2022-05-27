@@ -99,7 +99,7 @@ public class  MainCmds {
         reminders = createLists("src/Reminders.txt");
     }
 
-    /*public void menu() {
+    public void menu() {
         Scanner s = new Scanner(System.in);
         System.out.println("Menu: ");
         System.out.println("1. Messages");
@@ -162,7 +162,7 @@ public class  MainCmds {
         else {
             errorLoop();
         }
-    }*/
+    }
 
     public static ArrayList<String> createLists(String fileName) {
         ArrayList<String> tempList = new ArrayList<String>();
