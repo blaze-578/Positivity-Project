@@ -27,7 +27,7 @@ public class  MainCmds {
     public void getMessages() {
         if (messages.size() > 0) {
             String message = messages.remove((int) (Math.random() * messages.size()));
-            System.out.println(Color.CYAN + "Message: " + Color.WHITE_BRIGHT + message);
+            System.out.println("\n" + Color.CYAN + "Message: " + Color.WHITE_BRIGHT + message + "\n");
         }
         else if (messages.size() == 0) {
             System.out.println("There are no more messages left :(");
@@ -37,7 +37,7 @@ public class  MainCmds {
     public void getReminders() {
         if (reminders.size() > 0) {
             String reminder = reminders.remove((int) (Math.random() * reminders.size()));
-            System.out.println(Color.YELLOW_BRIGHT + "Daily Reminder: " + Color.WHITE_BRIGHT + reminder);
+            System.out.println("\n" + Color.YELLOW_BRIGHT + "Daily Reminder: " + Color.WHITE_BRIGHT + reminder + "\n");
         }
         else if (reminders.size() == 0) {
             System.out.println("There are no more daily reminders left :(");
@@ -47,7 +47,7 @@ public class  MainCmds {
     public void getPictures() {
         if (pictures.size() > 0) {
             String picture = pictures.remove((int) (Math.random() * pictures.size()));
-            System.out.println(Color.GREEN_BRIGHT + "Picture Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + picture);
+            System.out.println("\n" + Color.GREEN_BRIGHT + "Picture Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + picture + "\n");
         }
         else if (pictures.size() == 0) {
             System.out.println("There are no more animal pictures left :(");
@@ -57,7 +57,7 @@ public class  MainCmds {
     public void getGifs() {
         if (gifs.size() > 0) {
             String gif = gifs.remove((int) (Math.random() * gifs.size()));
-            System.out.println(Color.BLUE + "Gif Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + gif);
+            System.out.println("\n" + Color.BLUE + "Gif Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + gif + "\n");
         }
         else if (gifs.size() == 0) {
             System.out.println("There are no more gif links left :(");
@@ -66,7 +66,7 @@ public class  MainCmds {
     }
 
     public void endLoop() {
-        System.out.println("I hope this helped! Have a nice day!");
+        System.out.println("\nI hope this helped! Have a nice day!");
         System.exit(0);
     }
     public void errorLoop() {

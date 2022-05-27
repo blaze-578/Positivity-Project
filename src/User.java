@@ -18,9 +18,9 @@ public class User {
     }
 
     public void welcomeMessage() throws InterruptedException {
-        System.out.println("Welcome " + name + ", I hope your day is going well.");
+        System.out.println("\nWelcome " + name + ", I hope your day is going well.");
         Thread.sleep(2000);
-        System.out.println("If not, I hope this project helps!");
+        System.out.println("If not, I hope this project helps!\n");
         Thread.sleep(3500);
     }
 
