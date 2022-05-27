@@ -62,9 +62,6 @@ public class  MainCmds {
         }
         menu();
     }
-    public ArrayList<ArrayList<String>> getAll() {
-        return all;
-    }
 
     public void endLoop() {
         System.out.println("I hope this helped! Have a nice day!");
@@ -101,14 +98,14 @@ public class  MainCmds {
 
     public void menu() {
         Scanner s = new Scanner(System.in);
-        System.out.println("Menu: ");
-        System.out.println("1. Messages");
-        System.out.println("2. Daily Reminders");
-        System.out.println("3. Animal Pictures");
-        System.out.println("4. Animal Gifs");
-        System.out.println("5. Random");
-        System.out.println("6. Exit");
-        System.out.print("Pick one: ");
+        System.out.println(Color.WHITE_BRIGHT + "Menu: ");
+        System.out.println(Color.WHITE_BRIGHT + "1. " +  Color.CYAN + "Messages");
+        System.out.println(Color.WHITE_BRIGHT + "2. " + Color.YELLOW + "Daily Reminders");
+        System.out.println(Color.WHITE_BRIGHT + "3. " + Color.GREEN + "Animal Pictures");
+        System.out.println(Color.WHITE_BRIGHT + "4. " + Color.BLUE + "Animal Gifs");
+        System.out.println(Color.WHITE_BRIGHT + "5. " + Color.PURPLE + "Random");
+        System.out.println(Color.WHITE_BRIGHT + "6. " +  Color.RED + "Exit");
+        System.out.print(Color.WHITE_BRIGHT + "Pick one: ");
         int choice = s.nextInt();
         if (choice == 1) {
             getMessages();
