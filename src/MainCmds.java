@@ -17,7 +17,6 @@ public class  MainCmds {
 
     public MainCmds() {
         createLists();
-        all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
         lastNum = 0;
     }
 
@@ -205,6 +204,7 @@ public class  MainCmds {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
+        all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
     }
 
     public static void updateFile(String fileName, ArrayList<String> list) {
