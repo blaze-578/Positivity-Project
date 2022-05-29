@@ -16,10 +16,7 @@ public class  MainCmds {
     int lastNum;
 
     public MainCmds() {
-        messages = createLists("src/Messages.txt");
-        reminders = createLists("src/Reminders.txt");
-        pictures = createLists("src/AnimalPictures.txt");
-        gifs = createLists("src/AnimalGifs.txt");
+        createLists();
         all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
         lastNum = 0;
     }
@@ -88,14 +85,7 @@ public class  MainCmds {
         menu();
     }
     public void reset() {
-        gifs = new ArrayList<String>();
-        pictures = new ArrayList<String>();
-        messages = new ArrayList<String>();
-        reminders = new ArrayList<String>();
-        gifs = createLists("src/AnimalGifs.txt");
-        pictures = createLists("src/AnimalPictures.txt");
-        messages = createLists("src/Messages.txt");
-        reminders = createLists("src/Reminders.txt");
+        createLists();
     }
 
     public void menu() {
@@ -169,22 +159,52 @@ public class  MainCmds {
         }
     }
 
-    public static ArrayList<String> createLists(String fileName) {
-        ArrayList<String> tempList = new ArrayList<String>();
+    public void createLists() {
+        messages = new ArrayList<String>();
+        reminders = new ArrayList<String>();
+        pictures = new ArrayList<String>();
+        gifs = new ArrayList<String>();
         try {
-            File f = new File(fileName);
+            File f = new File("src/AllFiles.txt");
             Scanner s = new Scanner(f);
+            boolean message = true;
+            boolean reminder = false;
+            boolean picture = false;
+            boolean gif = false;
             while (s.hasNextLine()) {
                 String data = s.nextLine();
-                tempList.add(data);
-                //System.out.println("testing");
+                if (data.substring(0,2).equals("~~")) {
+                    if (data.equals("~~Reminders~~")) {
+                        message = false;
+                        reminder = true;
+                    }
+                    else if (data.equals("~~Pictures~~")) {
+                        reminder = false;
+                        picture = true;
+                    }
+                    else if (data.equals("~~Gifs~~")) {
+                        picture = false;
+                        gif = true;
+                    }
+                }
+                if (data.substring(0,2).equals("~~") == false && message == true) {
+                    messages.add(data);
+                }
+                if (data.substring(0,2).equals("~~") == false && reminder == true) {
+                    reminders.add(data);
+                }
+                if (data.substring(0,2).equals("~~") == false && picture == true) {
+                    pictures.add(data);
+                }
+                if (data.substring(0,2).equals("~~") == false && gif == true) {
+                    gifs.add(data);
+                }
             }
             s.close();
         } catch (IOException e) {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
-        return tempList; // can be used for the final part
     }
 
     public static void updateFile(String fileName, ArrayList<String> list) {
