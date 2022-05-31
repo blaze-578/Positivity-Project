@@ -207,25 +207,6 @@ public class  MainCmds {
         all = new ArrayList<ArrayList<String>>(Arrays.asList(messages, reminders, pictures, gifs));
     }
 
-    public static void updateFile(String fileName, ArrayList<String> list) {
-        String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
-        try {
-            File f = new File(temp);
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/user.data");
-            for (String i : list) {
-                fw.write(i + "\n");
-            }
-            fw.close();
-        }
-        catch (IOException e) {
-                //File t = new File(temp);
-                //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-                System.out.println("Unable to update files");
-                e.printStackTrace();
-        }
-    }
-
     public void saveTxtFiles() {
         try {
             File f = new File("src/person.data");
@@ -255,35 +236,4 @@ public class  MainCmds {
             e.printStackTrace();
         }
     }
-
-    // still working on this
-    /*public static void updateFiles(String fileName, ArrayList<String> list) {
-        String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
-        ArrayList<String> tempList = createLists(fileName);
-        try {
-            for (int i = 0; i < list.size(); i++) {
-                for (int y = 0; y < tempList.size(); y++) {
-                    if (list.get(i).equals(tempList.get(y))) {
-                        tempList.remove(y);
-                        y--;
-                    }
-                }
-            }
-
-            File t = new File(temp);
-            t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter(temp);
-            for (String i : tempList) {
-                fw.write(i);
-            }
-            fw.close();
-
-        }
-        catch (IOException e) {
-            //File t = new File(temp);
-            //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            System.out.println("Unable to update files");
-            e.printStackTrace();
-        }
-    }*/
 }
