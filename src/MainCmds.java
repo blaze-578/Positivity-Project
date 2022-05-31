@@ -15,8 +15,8 @@ public class  MainCmds {
     private ArrayList<ArrayList<String>> all;
     int lastNum;
 
-    public MainCmds() {
-        createLists();
+    public MainCmds(String fileName) {
+        createLists(fileName);
         lastNum = 0;
     }
 
@@ -158,13 +158,13 @@ public class  MainCmds {
         }
     }
 
-    public void createLists() {
+    public void createLists(String fileName) {
         messages = new ArrayList<String>();
         reminders = new ArrayList<String>();
         pictures = new ArrayList<String>();
         gifs = new ArrayList<String>();
         try {
-            File f = new File("src/AllFiles.txt");
+            File f = new File(fileName);
             Scanner s = new Scanner(f);
             boolean message = true;
             boolean reminder = false;
@@ -226,6 +226,36 @@ public class  MainCmds {
         }
     }
 
+    public void saveTxtFiles() {
+        try {
+            File f = new File("src/person.data");
+            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter fw = new FileWriter("src/txt.data");
+            fw.write("~~Messages~~\n");
+            for (int i = 0; i < messages.size(); i++) {
+                fw.write(messages.get(i) + "\n");
+            }
+            fw.write("~~Reminders~~\n");
+            for (int i = 0; i < reminders.size(); i++) {
+                fw.write(reminders.get(i) + "\n");
+            }
+            fw.write("~~Pictures~~\n");
+            for (int i = 0; i < pictures.size() - 1; i++) {
+                fw.write(pictures.get(i) + "\n");
+            }
+            fw.write("~~Gifs~~\n");
+            for (int i = 0; i < gifs.size() - 1; i++) {
+                fw.write(gifs.get(i) + "\n");
+            }
+            fw.close();
+            System.out.println("File updated!");
+        }
+        catch (IOException e) {
+            System.out.println("Unable to create file");
+            e.printStackTrace();
+        }
+    }
+
     // still working on this
     /*public static void updateFiles(String fileName, ArrayList<String> list) {
         String temp = fileName.substring(0, 4) + "temp" + fileName.substring(4);
@@ -254,23 +284,6 @@ public class  MainCmds {
             //t.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
             System.out.println("Unable to update files");
             e.printStackTrace();
-        }
-    }*/
-
-    /*public void saveUserInfo() {
-        try {
-            File f = new File("src/user.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/user.data");
-            fw.write(name + "\n" + color + "\n" + startingNumber);
-            fw.close();
-        }
-        catch (IOException e) {
-            File f = new File("src/user.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/user.data");
-            fw.write(name + "\n" + color + "\n" + startingNumber);
-            fw.close();
         }
     }*/
 }
