@@ -209,9 +209,9 @@ public class  MainCmds {
 
     public void saveTxtFiles() {
         try {
-            File f = new File("src/person.data");
+            File f = new File("src/txt.data");
             f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/txt.data");
+            FileWriter fw = new FileWriter(f);
             fw.write("~~Messages~~\n");
             for (int i = 0; i < messages.size(); i++) {
                 fw.write(messages.get(i) + "\n");

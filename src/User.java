@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
@@ -26,12 +25,22 @@ public class User {
     }
 
     public static String welcomeMessage() throws InterruptedException {
-        Scanner s = new Scanner(System.in);System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
-        String name = s.nextLine();
-        System.out.println("\nWelcome " + name + ", I hope your day is going well.");
-        Thread.sleep(2000);
-        System.out.println("If not, I hope this project helps!\n");
-        Thread.sleep(3500);
+        try {
+            File f = new File("src/person.data");
+            Scanner s = new Scanner(f);
+            System.out.println("Welcome back" + name);
+            System.out.println("I hope your day is going well. If not, I hope this helps!\n");
+            MainCmds m = new MainCmds("")
+        }
+        catch {
+            Scanner s = new Scanner(System.in);
+            System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
+            String name = s.nextLine();
+            System.out.println("\nWelcome " + name + ", I hope your day is going well.");
+            Thread.sleep(2000);
+            System.out.println("If not, I hope this project helps!\n");
+            Thread.sleep(3500);
+        }
         return name;
     }
 
