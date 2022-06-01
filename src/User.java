@@ -7,14 +7,11 @@ import java.util.Scanner;
 
 public class User {
     private String name;
+    private MainCmds m;
 
-    public User() {
+    public User(String fileName) {
         name = "";
-    }
-
-    public User(String n) {
-        // main constructor
-        name = n;
+        m = new MainCmds(fileName);
     }
 
     public String getName() {
@@ -25,9 +22,9 @@ public class User {
         return("Name: " + getName());
     }
 
-    public static String welcomeMessage() throws InterruptedException {
+    public static void welcomeMessage(String name) throws InterruptedException {
         Scanner s = new Scanner(System.in);System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
-        String name = s.nextLine();
+        //String name = s.nextLine();
         if (name.equals("")) {
             System.out.println("\nWelcome " + name + ", I hope your day is going well.");
             Thread.sleep(2000);
@@ -35,12 +32,12 @@ public class User {
             Thread.sleep(3500);
         }
         else {
+            this.name = name;
             System.out.println("\nWelcome back " + name + ", I hope your day is going well.");
             Thread.sleep(2000);
             System.out.println("If not, I hope this helps!\n");
             Thread.sleep(3500);
         }
-        return name;
     }
 
     public void save() {
