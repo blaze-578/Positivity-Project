@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class testingClass {
     public static void main(String[] args) throws InterruptedException {
-        MainCmds m = new MainCmds("AllFiles.txt");
+        MainCmds m = new MainCmds("src/AllFiles.txt");
 
         //ArrayList<String> temp = m.getGifs();
         /*for (String i : temp) {
@@ -15,7 +15,7 @@ public class testingClass {
 
         String name = User.welcomeMessage();
 
-        User n = new User(name);
+        User n = new User();
         m.menu();
     }
 }
