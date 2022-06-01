@@ -13,11 +13,11 @@ public class  MainCmds {
     private ArrayList<String> pictures;
     private ArrayList<String> gifs;
     private ArrayList<ArrayList<String>> all;
-    int lastNum;
+    int lastMenuNum;
 
     public MainCmds(String fileName) {
         createLists(fileName);
-        lastNum = 0;
+        lastMenuNum = 0;
     }
 
     public void getMessages() {
@@ -84,7 +84,7 @@ public class  MainCmds {
         menu();
     }
     public void reset() {
-        createLists();
+        createLists("src/AllFiles.txt");
     }
 
     public void menu() {
@@ -129,8 +129,8 @@ public class  MainCmds {
                         if (tempNum == 1) {
                             x = false;
                         }
-                        if (num != lastNum) {
-                            lastNum = num;
+                        if (num != lastMenuNum) {
+                            lastMenuNum = num;
                             x = false;
                         }
                     }
@@ -209,9 +209,9 @@ public class  MainCmds {
 
     public void saveTxtFiles() {
         try {
-            File f = new File("src/txt.data");
+            File f = new File("src/person.data");
             f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter(f);
+            FileWriter fw = new FileWriter("src/txt.data");
             fw.write("~~Messages~~\n");
             for (int i = 0; i < messages.size(); i++) {
                 fw.write(messages.get(i) + "\n");
