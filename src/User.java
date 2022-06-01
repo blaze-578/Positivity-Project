@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
@@ -25,20 +26,18 @@ public class User {
     }
 
     public static String welcomeMessage() throws InterruptedException {
-        try {
-            File f = new File("src/person.data");
-            Scanner s = new Scanner(f);
-            System.out.println("Welcome back" + name);
-            System.out.println("I hope your day is going well. If not, I hope this helps!\n");
-            MainCmds m = new MainCmds("")
-        }
-        catch {
-            Scanner s = new Scanner(System.in);
-            System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
-            String name = s.nextLine();
+        Scanner s = new Scanner(System.in);System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
+        String name = s.nextLine();
+        if (name.equals("")) {
             System.out.println("\nWelcome " + name + ", I hope your day is going well.");
             Thread.sleep(2000);
             System.out.println("If not, I hope this project helps!\n");
+            Thread.sleep(3500);
+        }
+        else {
+            System.out.println("\nWelcome back " + name + ", I hope your day is going well.");
+            Thread.sleep(2000);
+            System.out.println("If not, I hope this helps!\n");
             Thread.sleep(3500);
         }
         return name;
@@ -58,7 +57,7 @@ public class User {
         }
     }
 
-    public static void createFile() {
+    /*public static void createUserFile() {
         try {
             File f = new File("src/person.data");
             Scanner s = new Scanner(f);
@@ -74,15 +73,14 @@ public class User {
             }
             s.close();
             User u =  new User(name);
-            System.out.println("Welcome back" + name);
-            System.out.println("I hope your day is going well. If not, I hope this helps!\n");
-            MainCmds m = new MainCmds("")
+            welcomeMessage();
+            MainCmds m = new MainCmds("src/txt.data");
 
         }
         // if the file doesn't exist, we will create a blank Person object and ask them for a name and hobby
         catch (FileNotFoundException e) {
-            Person p = new Person();
-            System.out.println(p.greet());
+            User u = new User();
+
             System.out.print("What is your name? ");
             Scanner in = new Scanner(System.in);
             String name = in.nextLine();
@@ -92,5 +90,5 @@ public class User {
             p.setHobby(hobby);
             p.save();
         }
-    }
+    }*/
 }
