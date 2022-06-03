@@ -9,35 +9,37 @@ public class User {
     private String name;
     private MainCmds m;
 
-    public User(String fileName) {
+    public User() throws InterruptedException  {
         name = "";
-        m = new MainCmds(fileName);
+        m = new MainCmds();
+        welcomeMessage();
     }
 
-    public String getName() {
-        return name;
-    }
+    public void welcomeMessage() throws InterruptedException {
+        try {
+            File f = new File("src/PersonData.txt");
+            Scanner s = new Scanner(f);
+            String name = s.nextLine();
+            m.createLists("src/RemainingMessages.txt");
 
-    public String toString() {
-        return("Name: " + getName());
-    }
+            System.out.println("\nWelcome back to the " + Color.BLUE_BRIGHT + "Positivity Machine " + Color.WHITE_BRIGHT + name + ", I hope your day is going well.");
+            Thread.sleep(2000);
+            System.out.println("If not, I hope this helps!\n");
+            Thread.sleep(3500);
+        }
+        catch (IOException e) {
+            m.createLists("src/AllFiles.txt");
+            Scanner s = new Scanner(System.in);
+            System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
+            String name = s.nextLine();
 
-    public static void welcomeMessage(String name) throws InterruptedException {
-        Scanner s = new Scanner(System.in);System.out.print(Color.WHITE_BRIGHT + "Hello, welcome to the " + Color.BLUE_BRIGHT + "Positivity Machine" + Color.WHITE_BRIGHT + ", what is your name? ");
-        //String name = s.nextLine();
-        if (name.equals("")) {
             System.out.println("\nWelcome " + name + ", I hope your day is going well.");
             Thread.sleep(2000);
             System.out.println("If not, I hope this project helps!\n");
             Thread.sleep(3500);
         }
-        else {
-            this.name = name;
-            System.out.println("\nWelcome back " + name + ", I hope your day is going well.");
-            Thread.sleep(2000);
-            System.out.println("If not, I hope this helps!\n");
-            Thread.sleep(3500);
-        }
+        m.updateName(name);
+        m.menu();
     }
 
     public void save() {

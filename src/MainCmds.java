@@ -13,11 +13,15 @@ public class  MainCmds {
     private ArrayList<String> pictures;
     private ArrayList<String> gifs;
     private ArrayList<ArrayList<String>> all;
-    int lastMenuNum;
+    private int lastMenuNum;
+    private String name;
 
-    public MainCmds(String fileName) {
-        createLists(fileName);
+    public MainCmds() {
         lastMenuNum = 0;
+    }
+
+    public void updateName(String name) {
+        this.name = name;
     }
 
     public void getMessages() {
@@ -63,6 +67,7 @@ public class  MainCmds {
 
     public void endLoop() {
         System.out.println("\nI hope this helped! Have a nice day!");
+        saveTxtFiles();
         System.exit(0);
     }
     public void errorLoop() {
@@ -209,9 +214,15 @@ public class  MainCmds {
 
     public void saveTxtFiles() {
         try {
-            File f = new File("src/person.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/txt.data");
+            File f1 = new File("src/PersonData.txt");
+            f1.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
+            FileWriter personFileWriter = new FileWriter(f1);
+            personFileWriter.write(name);
+            personFileWriter.close();
+
+            File f2 = new File("src/RemainingMessages.txt");
+            f2.createNewFile();
+            FileWriter fw = new FileWriter(f2);
             fw.write("~~Messages~~\n");
             for (int i = 0; i < messages.size(); i++) {
                 fw.write(messages.get(i) + "\n");
@@ -229,7 +240,7 @@ public class  MainCmds {
                 fw.write(gifs.get(i) + "\n");
             }
             fw.close();
-            System.out.println("File updated!");
+            System.out.println("Files updated!");
         }
         catch (IOException e) {
             System.out.println("Unable to create file");
