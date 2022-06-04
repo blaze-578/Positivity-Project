@@ -9,9 +9,8 @@ public class User {
     private String name;
     private MainCmds m;
 
-    public User() throws InterruptedException  {
+    public User() {
         m = new MainCmds();
-        welcomeMessage();
     }
 
     public void welcomeMessage() throws InterruptedException {
@@ -42,53 +41,4 @@ public class User {
         m.updateName(name);
         m.menu();
     }
-
-    public void save() {
-        try {
-            File f = new File("src/person.data");
-            f.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
-            FileWriter fw = new FileWriter("src/person.data");
-            fw.write("Name: " + name + "\n");
-            fw.close();
-        }
-        catch (IOException e) {
-            System.out.println("Unable to create file");
-            e.printStackTrace();
-        }
-    }
-
-    /*public static void createUserFile() {
-        try {
-            File f = new File("src/person.data");
-            Scanner s = new Scanner(f);
-            int line = 1;
-            String name = "";
-            // reading from the file line by line
-            while (s.hasNextLine()) {
-                String data = s.nextLine();
-                if (line == 1) {
-                    name = data;
-                }
-                line++;
-            }
-            s.close();
-            User u =  new User(name);
-            welcomeMessage();
-            MainCmds m = new MainCmds("src/txt.data");
-
-        }
-        // if the file doesn't exist, we will create a blank Person object and ask them for a name and hobby
-        catch (FileNotFoundException e) {
-            User u = new User();
-
-            System.out.print("What is your name? ");
-            Scanner in = new Scanner(System.in);
-            String name = in.nextLine();
-            System.out.print("What is your hobby? ");
-            String hobby = in.nextLine();
-            p.setName(name);
-            p.setHobby(hobby);
-            p.save();
-        }
-    }*/
 }

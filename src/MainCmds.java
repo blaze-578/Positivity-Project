@@ -239,7 +239,6 @@ public class  MainCmds {
             File f1 = new File("src/PersonData.txt");
             f1.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
             FileWriter personFileWriter = new FileWriter(f1);
-            System.out.println(name);
             personFileWriter.write(name);
             personFileWriter.close();
 
