@@ -24,67 +24,86 @@ public class  MainCmds {
         this.name = name;
     }
 
-    public void getMessages() {
+    public void getMessages() throws InterruptedException {
         if (messages.size() > 0) {
             String message = messages.remove((int) (Math.random() * messages.size()));
             System.out.println("\n" + Color.CYAN + "Message: " + Color.WHITE_BRIGHT + message + "\n");
+            Thread.sleep(2000);
         }
         else if (messages.size() == 0) {
+            Thread.sleep(2000);
             System.out.println("There are no more messages left :(");
+            Thread.sleep(2000);
         }
         menu();
     }
-    public void getReminders() {
+    public void getReminders() throws InterruptedException {
         if (reminders.size() > 0) {
             String reminder = reminders.remove((int) (Math.random() * reminders.size()));
             System.out.println("\n" + Color.YELLOW_BRIGHT + "Daily Reminder: " + Color.WHITE_BRIGHT + reminder + "\n");
+            Thread.sleep(2000);
         }
         else if (reminders.size() == 0) {
+            Thread.sleep(2000);
             System.out.println("There are no more daily reminders left :(");
+            Thread.sleep(2000);
         }
         menu();
     }
-    public void getPictures() {
+    public void getPictures() throws InterruptedException {
         if (pictures.size() > 0) {
             String picture = pictures.remove((int) (Math.random() * pictures.size()));
             System.out.println("\n" + Color.GREEN_BRIGHT + "Picture Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + picture + "\n");
+            Thread.sleep(2000);
         }
         else if (pictures.size() == 0) {
+            Thread.sleep(2000);
             System.out.println("There are no more animal pictures left :(");
+            Thread.sleep(2000);
         }
         menu();
     }
-    public void getGifs() {
+    public void getGifs() throws InterruptedException {
         if (gifs.size() > 0) {
             String gif = gifs.remove((int) (Math.random() * gifs.size()));
+            Thread.sleep(2000);
             System.out.println("\n" + Color.BLUE + "Gif Link:" + Color.WHITE_BRIGHT + " Click on it!\n" + gif + "\n");
         }
         else if (gifs.size() == 0) {
+            Thread.sleep(2000);
             System.out.println("There are no more gif links left :(");
+            Thread.sleep(2000);
         }
         menu();
     }
 
-    public void endLoop() {
+    public void endLoop() throws InterruptedException {
+        Thread.sleep(2000);
         System.out.println("\nI hope this helped! Have a nice day!");
+        Thread.sleep(2000);
         saveTxtFiles();
-        System.exit(0);
     }
-    public void errorLoop() {
+    public void errorLoop() throws InterruptedException {
         System.out.println("Sorry, I'm not sure what you typed. Try again!");
+        Thread.sleep(2000);
         menu();
     }
-    public void empty() {
+    public void empty() throws InterruptedException {
+        Thread.sleep(2000);
         System.out.println("No more messages/links :(");
         Scanner sc = new Scanner(System.in);
+        Thread.sleep(2000);
         System.out.print("Would you like to reset everything? (y/n) ");
         String answer = sc.nextLine();
         if (answer.toLowerCase().equals("y")) {
             reset();
+            Thread.sleep(5000);
             System.out.println("All options have been reset!");
+            Thread.sleep(2000);
         }
         else {
             System.out.println("No options have been updated.");
+            Thread.sleep(2000);
         }
         menu();
     }
@@ -92,17 +111,20 @@ public class  MainCmds {
         createLists("src/AllFiles.txt");
     }
 
-    public void menu() {
+    public void menu() throws InterruptedException {
         Scanner s = new Scanner(System.in);
         System.out.println(Color.WHITE_BRIGHT + "Menu: ");
+        Thread.sleep(500);
         System.out.println(Color.WHITE_BRIGHT + "1. " + Color.CYAN + "Messages");
         System.out.println(Color.WHITE_BRIGHT + "2. " + Color.YELLOW_BRIGHT + "Daily Reminders");
         System.out.println(Color.WHITE_BRIGHT + "3. " + Color.GREEN_BRIGHT + "Animal Pictures");
         System.out.println(Color.WHITE_BRIGHT + "4. " + Color.BLUE + "Animal Gifs");
         System.out.println(Color.WHITE_BRIGHT + "5. " + Color.PURPLE + "Random");
         System.out.println(Color.WHITE_BRIGHT + "6. " + Color.RED + "Exit");
+        Thread.sleep(2000);
         System.out.print(Color.WHITE_BRIGHT + "Pick one: ");
         int choice = s.nextInt();
+        Thread.sleep(200);
         if (choice == 1) {
             getMessages();
         }
@@ -217,6 +239,7 @@ public class  MainCmds {
             File f1 = new File("src/PersonData.txt");
             f1.createNewFile(); // this method will create the file if it does not exist, if it does exist, it does nothing
             FileWriter personFileWriter = new FileWriter(f1);
+            System.out.println(name);
             personFileWriter.write(name);
             personFileWriter.close();
 
@@ -246,5 +269,6 @@ public class  MainCmds {
             System.out.println("Unable to create file");
             e.printStackTrace();
         }
+        System.exit(0);
     }
 }
