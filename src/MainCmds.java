@@ -86,7 +86,7 @@ public class  MainCmds {
 
             Thread.sleep(2000);
             System.out.println("If not, I hope this helps!\n");
-            Thread.sleep(3500);
+            Thread.sleep(2000);
         }
         catch (IOException e) {
             String name;
@@ -99,7 +99,7 @@ public class  MainCmds {
             System.out.println("\nWelcome " + u.getName() + ", I hope your day is going well.");
             Thread.sleep(2000);
             System.out.println("If not, I hope this project helps!\n");
-            Thread.sleep(3500);
+            Thread.sleep(2000);
             u = new User(name);
         }
         menu();
