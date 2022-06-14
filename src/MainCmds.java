@@ -185,6 +185,10 @@ public class  MainCmds {
         else if (choice.equals("stats")) {
             stats();
         }
+        else if (choice.equals("reset")) {
+            reset();
+            menu();
+        }
         else {
             errorLoop();
         }
