@@ -40,7 +40,7 @@ public class List {
         }
     }
 
-    public void addMessage(String s) {
+    public void addString(String s) {
         list.add(s);
     }
     public void setPermList(String s) {

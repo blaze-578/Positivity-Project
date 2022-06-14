@@ -215,16 +215,16 @@ public class  MainCmds {
                     }
                 }
                 if (data.substring(0,2).equals("~~") == false && message == true) {
-                    messages.addMessage(data);
+                    messages.addString(data);
                 }
                 if (data.substring(0,2).equals("~~") == false && reminder == true) {
-                    reminders.addMessage(data);
+                    reminders.addString(data);
                 }
                 if (data.substring(0,2).equals("~~") == false && picture == true) {
-                    pictures.addMessage(data);
+                    pictures.addString(data);
                 }
                 if (data.substring(0,2).equals("~~") == false && gif == true) {
-                    gifs.addMessage(data);
+                    gifs.addString(data);
                 }
             }
             s.close();
