@@ -190,7 +190,6 @@ public class  MainCmds {
         }
     }
 
-
     public void createLists(String fileName) {
         try {
             File f = new File(fileName);
@@ -234,7 +233,6 @@ public class  MainCmds {
             e.printStackTrace();
         }
     }
-
     public void createPermLists() {
         try {
             File f = new File("src/AllFiles.txt");
