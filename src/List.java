@@ -40,9 +40,6 @@ public class List {
         }
     }
 
-    public void setList(ArrayList<String> s) {
-        list = s;
-    }
     public void addMessage(String s) {
         list.add(s);
     }
