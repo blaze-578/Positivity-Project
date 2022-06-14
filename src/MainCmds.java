@@ -1,27 +1,25 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class  MainCmds {
-    private list messages;
-    private list reminders;
-    private list pictures;
-    private list gifs;
+    private List messages;
+    private List reminders;
+    private List pictures;
+    private List gifs;
     private User u;
     private ArrayList<ArrayList<String>> all;
     private int lastMenuNum;
 
     public MainCmds() {
         lastMenuNum = 0;
-        messages = new list("Messages", Color.CYAN);
-        reminders = new list("Daily Reminders", Color.YELLOW_BRIGHT);
-        pictures = new list("Animal Pictures", Color.GREEN_BRIGHT);
-        gifs = new list("Animal Gifs", Color.BLUE);
+        messages = new List("Messages", Color.CYAN);
+        reminders = new List("Daily Reminders", Color.YELLOW_BRIGHT);
+        pictures = new List("Animal Pictures", Color.GREEN_BRIGHT);
+        gifs = new List("Animal Gifs", Color.BLUE);
         all = new ArrayList<ArrayList<String>>(Arrays.asList(messages.getList(), reminders.getList(), pictures.getList(), gifs.getList()));
         createPermLists();
     }

@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class list {
+public class List {
     private ArrayList<String> list;
     private ArrayList<String> permList;
     private final String option;
     private final String color;
 
-    public list(String s, String c) {
+    public List(String s, String c) {
         list = new ArrayList<String>();
         permList = new ArrayList<String>();
         option = s;
